@@ -3,5 +3,6 @@
     "editor.codeActionsOnSave": {
         "sourse.fixAll":true,
         "source.organizeImports": true
-    }
+    },
+    "css.lint.emptyRules": "ignore"
 }
