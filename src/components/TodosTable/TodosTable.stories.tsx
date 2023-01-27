@@ -3,7 +3,7 @@ import TodosTable, { ITodosTable } from './TodosTable';
 import { mockTodosTableProps } from './TodosTable.mocks';
 
 export default {
-  title: 'templates/TodosTable',
+  title: 'todosTable/TodosTable',
   component: TodosTable,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

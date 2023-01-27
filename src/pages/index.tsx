@@ -1,9 +1,8 @@
-import TodosTable from '@/components/TodosTable/TodosTable'
-
-import { Inter } from '@next/font/google'
-import Head from 'next/head'
-
+import TodosTable from '@/components/todosTable/TodosTable';
+import { Inter } from '@next/font/google';
+import Head from 'next/head';
 const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
   return (
@@ -16,7 +15,7 @@ export default function Home() {
       </Head>
       <main >
         <section className='text-3xl text-gray-700 font-bold mb-5'>
-        <TodosTable sampleTextProp='Hello'></TodosTable>
+        <TodosTable></TodosTable>
 
         </section>
       </main>

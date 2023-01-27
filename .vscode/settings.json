@@ -4,5 +4,6 @@
         "sourse.fixAll":true,
         "source.organizeImports": true
     },
-    "css.lint.emptyRules": "ignore"
+    "css.lint.emptyRules": "ignore",
+  
 }
