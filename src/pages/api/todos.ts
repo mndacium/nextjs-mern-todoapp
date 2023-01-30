@@ -1,26 +1,39 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import ITodo from '../../models/ITodo'
-// Fake users data
-const todos: ITodo[] = [ {
-  Id: 0,
-  Description: "Створити початкову сторінку",
-  Deadline: new Date(),
-  State:"Done"
-},
-{
-  Id: 1,
-  Description: "Роздати стілька",
-  Deadline: new Date(),
-  State:"In progress"
-},
-{
-  Id: 2,
-  Description: "Роздати стілька",
-  Deadline: new Date(),
-  State:"Failed"
-},]
-
-export default function handler(_req: NextApiRequest, res: NextApiResponse) {
-  // Get data from your database
-  res.status(200).json(todos)
+import dbConnect from 'lib/connection';
+import TodoModel from 'lib/models/Todo.model';
+import type { NextApiRequest, NextApiResponse } from 'next';
+const uri: string = process.env.NEXT_PUBLIC_MONGODB_URI as string;
+export default async function test(req: NextApiRequest, res: NextApiResponse) {
+  const { method } = req
+  try{
+   await dbConnect();
+   
+  }
+  catch(e){
+    console.log(e)
+  }
+  
+  switch (method) {
+    case 'GET':
+      try {
+        const todos = await TodoModel.find() /* find all the data in our database */
+     
+        res.status(200).json({ success: true, data: todos })
+      } catch (error) {
+        res.status(400).json({ success: false })
+      }
+      break
+    case 'POST':
+      try {
+        const todo = await TodoModel.create(
+          req.body
+        ) 
+        res.status(201).json({ success: true, data: todo })
+      } catch (error) {
+        res.status(400).json({ success: false })
+      }
+      break
+    default:
+      res.status(400).json({ success: false })
+      break
+  }
 }
