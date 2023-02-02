@@ -11,15 +11,14 @@ export default function createModel<T, TModel = Model<T>>(
   if (process.env.NODE_ENV === 'development') {
     // In development mode, use a global variable so that the value
     // is preserved across module reloads caused by HMR (Hot Module Replacement).
-    // @ts-ignore
+    
 
-    if (!global[modelName]) {
-      createdModel = model<T, TModel>(modelName, schema);
-      // @ts-ignore
-      global[modelName] = createdModel;
-    }
-    if (collection) {
-      createdModel = model<T, TModel>(modelName, schema, collection);
+    // @ts-ignore
+     if (!global[modelName]) {
+      if(collection){
+        createdModel = model<T, TModel>(modelName, schema,collection);
+      }
+      else createdModel = model<T, TModel>(modelName, schema);
       // @ts-ignore
       global[modelName] = createdModel;
     }

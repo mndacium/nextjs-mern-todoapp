@@ -17,9 +17,9 @@ export default async function test(req: NextApiRequest, res: NextApiResponse) {
       try {
         const todos = await TodoModel.find() /* find all the data in our database */
      
-        res.status(200).json({ success: true, data: todos })
+        res.status(200).json(todos)
       } catch (error) {
-        res.status(400).json({ success: false })
+        res.status(400).json(error)
       }
       break
     case 'POST':
@@ -27,13 +27,13 @@ export default async function test(req: NextApiRequest, res: NextApiResponse) {
         const todo = await TodoModel.create(
           req.body
         ) 
-        res.status(201).json({ success: true, data: todo })
+        res.status(201).json(todo)
       } catch (error) {
-        res.status(400).json({ success: false })
+        res.status(400).json(error)
       }
       break
     default:
-      res.status(400).json({ success: false })
+      res.status(400).json("Not invalid request")
       break
   }
 }
