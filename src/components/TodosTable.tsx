@@ -7,7 +7,7 @@ import RemoveDoneIcon from '@mui/icons-material/RemoveDone';
 import { ITodo } from 'lib/models/Todo.model';
 import { useState } from 'react';
 import useSWR from 'swr';
-import StateIconButton from '../iconButton/stateIconButton';
+import StateIconButton from './stateIconButton';
 export interface ITodosTable {}
 
 
@@ -28,10 +28,10 @@ const TodosTable: React.FC<ITodosTable> = () => {
   if (!todos) return <div>Loading...</div>;
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900">
-      <div className="col-span-12">
-        <div className="flex justify-around mb-2 ">
-          <div>
+    // <div className="flex items-center justify-center bg-gray-900">
+      <div className="flex flex-col items-center col-span-12">
+        <div className="flex mb-2">
+          <div className='mx-2'>
             <StateIconButton
               buttonState='Done'
               passedState={stateIconButtonState}
@@ -39,7 +39,7 @@ const TodosTable: React.FC<ITodosTable> = () => {
               updateState={updateState}
             ></StateIconButton>
           </div>
-          <div>
+          <div className='mx-2'>
           <StateIconButton
               buttonState='Failed'
               passedState={stateIconButtonState}
@@ -47,7 +47,7 @@ const TodosTable: React.FC<ITodosTable> = () => {
               updateState={updateState}
             ></StateIconButton>
           </div>
-          <div>
+          <div className='mx-2'>
           <StateIconButton
               buttonState='In progress'
               passedState={stateIconButtonState}
@@ -56,7 +56,7 @@ const TodosTable: React.FC<ITodosTable> = () => {
             ></StateIconButton>
           </div>
           
-          <div>
+          <div className='mx-2'>
           <StateIconButton
               buttonState='Outdated'
               passedState={stateIconButtonState}
@@ -64,7 +64,7 @@ const TodosTable: React.FC<ITodosTable> = () => {
               updateState={updateState}
             ></StateIconButton>
           </div>
-          <div>
+          <div className='mx-2'>
           <StateIconButton
               buttonState='None'
               passedState={stateIconButtonState}
@@ -74,7 +74,7 @@ const TodosTable: React.FC<ITodosTable> = () => {
           </div>
         </div>
         <div className="overflow-auto lg:overflow-visible ">
-          <table className="table text-gray-200  border-separate text-sm">
+          <table className="table text-gray-200  border-separate ">
             <thead className="bg-gray-700 text-gray-300">
               <tr key="Header">
                 <th className="p-3">Description</th>
@@ -148,8 +148,8 @@ const TodosTable: React.FC<ITodosTable> = () => {
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
+       </div>
+    // </div>
   );
 };
 

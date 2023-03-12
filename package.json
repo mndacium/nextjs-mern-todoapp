@@ -11,19 +11,28 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fortawesome/fontawesome-free": "^6.3.0",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.6",
     "@mui/x-data-grid": "^5.17.20",
+    "@next-auth/mongodb-adapter": "^1.1.1",
     "@next/font": "13.1.2",
+    "@types/mongodb": "^4.0.7",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "babel-plugin-macros": "^3.1.0",
+    "bcrypt": "^5.1.0",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
-    "mongodb": "^4.13.0",
+    "mongodb": "^4.14.0",
     "mongoose": "^6.9.0",
     "next": "13.1.2",
+    "next-auth": "^4.20.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "^2.0.2",
@@ -31,10 +40,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
+    "@types/bcrypt": "^5.0.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   }
-
 }
